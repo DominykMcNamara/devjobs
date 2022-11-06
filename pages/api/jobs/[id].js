@@ -2,7 +2,7 @@ import jobsData from "../../../data.json";
 
 const handler = async ({ query: { id } }, res) => {
   try {
-    const jobListing = jobsData.filter((job) => (job.id = id));
+    const jobListing = jobsData.filter((job) => (job.id === parseInt(id)));
     if (jobListing) {
       res.status(200).json(jobListing[0]);
     } else {
