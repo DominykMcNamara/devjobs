@@ -7,7 +7,6 @@ const handler = async (req, res) => {
     );
     if (fullTimeListings) {
       res.status(200).json(fullTimeListings);
-      console.log(fullTimeListings);
     } else {
       res
         .status(404)
