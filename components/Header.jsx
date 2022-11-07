@@ -11,7 +11,7 @@ export default function Header() {
       }}
       className="w-screen h-[10.125rem]"
     >
-    <div className="flex mx-auto w-[77.813rem] justify-between">
+    <div className="flex mx-auto w-[77.813rem] pt-[2.813rem]">
       <h1 className="text-h1 text-secondary-white"> devjobs </h1>
     </div>
     </div>
