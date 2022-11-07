@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "./Header";
+import SearchBar from "./SearchBar";
 export const siteTitle = "Devjobs";
 
 export default function Layout({ children }) {
@@ -19,6 +20,7 @@ export default function Layout({ children }) {
       </Head>
       <main>
         <Header />
+        <SearchBar />
         { children }
       </main>
     </div>
