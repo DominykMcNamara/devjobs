@@ -1,4 +1,6 @@
 import bg from "../assets/desktop/bg-pattern-header.svg";
+import Image from "next/image";
+import Logo from "../assets/desktop/logo.svg"
 import { ThemeToggler } from "./ThemeToggler";
 
 export default function Header() {
@@ -12,8 +14,8 @@ export default function Header() {
       }}
       className="w-screen h-[10.125rem]"
     >
-    <div className="flex mx-auto w-[77.813rem] pt-[2.813rem] justify-around">
-      <h1 className="text-h1 text-secondary-white"> devjobs </h1>
+    <div className="flex mx-auto w-[77.813rem] pt-[2.813rem] justify-around relative left-1">
+      <Image src={Logo} alt="devjobs logo" />
       <ThemeToggler />
     </div>
     </div>
