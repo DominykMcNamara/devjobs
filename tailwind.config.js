@@ -36,7 +36,12 @@ module.exports = {
       h2: ["1.5rem", { lineHeight: "1.813rem" }],
       h1: ["1.75rem", { lineHeight: "2.125rem" }],
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        headerImage: "url('/assets/desktop/bg-pattern-header.svg')",
+        footerImage: "url('/assets/desktop/bg-pattern-detail-footer.svg')"
+      }
+    },
   },
   plugins: [],
 };

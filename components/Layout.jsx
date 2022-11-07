@@ -1,5 +1,5 @@
 import Head from "next/head";
-
+import Header from "./Header";
 export const siteTitle = "Devjobs";
 
 export default function Layout({ children }) {
@@ -18,9 +18,8 @@ export default function Layout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <main>
-        <div>
+        <Header />
         { children }
-        </div>
       </main>
     </div>
   );
