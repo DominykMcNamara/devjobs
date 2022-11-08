@@ -1,11 +1,12 @@
 import { Formik, Form, Field } from "formik";
+import Image from "next/image";
 import * as Yup from "yup";
 import { TextInput } from "./TextInput";
 import SearchIcon from "../assets/desktop/icon-search.svg"
 import LocationIcon from "../assets/desktop/icon-location.svg"
 export default function SearchBar() {
   return (
-    <div className="flex flex-row justify-center w-[69.375]rem h-[5rem] rounded  p-2 text-p ">
+    <div className=" mx-auto flex flex-row justify-center w-[69.375rem] h-[5rem] rounded  p-2 text-p ">
       <Formik
         initialValues={{
           companyOrSearchTerm: "",
@@ -14,19 +15,26 @@ export default function SearchBar() {
         }}
       >
         <Form>
-          <div className="divide-x divide-neutral-100/25 relative bottom-[2rem]  bg-secondary-white p-2">
+          <div className="divide-x divide-neutral-100/25 relative bottom-[2rem] flex flex-row bg-secondary-white ">
+            <label className="p-3">
+            <Image src={SearchIcon} height={24} width={24} alt="Icon shaped like a magnifying glass" className="absolute top-4 ml-2" />
             <TextInput
-              className=" focus:outline-0 p-3"
+              className=" focus:outline-0 p-3 ml-10"
               name="companyOrSearchTerm"
               placeholder="Filter by title or company"
               type="text"
             />
+           
+            </label>
+            <label className="p-3">
+          <Image src={LocationIcon} height={24} width={24} alt="Icon shaped like a magnifying glass" className="absolute " />
             <TextInput
               className=" focus:outline-0 p-3"
               name="location"
               placeholder="location"
               type="text"
             />
+            </label>
 
             <label className="p-3 font-bold text-p text-[#19202D] ">
               <Field type="checkbox" name="fullTime" className="" />
