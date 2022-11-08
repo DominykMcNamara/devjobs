@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import { useJobListings } from '../context/JobListings'
 import Layout from "../components/Layout";
+import JobListings from "../components/JobListings";
 
 
 export default function Home() {
@@ -26,7 +27,7 @@ export default function Home() {
   return (
     <Layout>
       <>
-        <h1 className="text-h1">Hello world</h1>
+        {jobListings ?  <JobListings jobListings={jobListings}/> : <h1 className="text-h1 font-bold">Cant retrieve current job listings</h1>}
       </>
     </Layout>
   );
