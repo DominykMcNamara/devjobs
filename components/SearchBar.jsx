@@ -1,5 +1,6 @@
 import { Formik, Form, Field } from "formik";
 import Image from "next/image";
+import axios from "axios";
 import * as Yup from "yup";
 import { TextInput } from "./TextInput";
 import SearchIcon from "../assets/desktop/icon-search.svg"
@@ -11,7 +12,11 @@ export default function SearchBar() {
         initialValues={{
           companyOrSearchTerm: "",
           location: "",
-          fullTime: false,
+          fullTime: true,
+        }}
+        onSubmit={ async (values) => {
+          const jobListings = await axios.get(`http://localhost:3000/api/jobs/filter/${values.companyOrSearchTerm ? values.companyOrSearchTerm : "''"}/${values.location ? values.location : "''"}/${values.fullTime ? 'Full Time' : 'Part Time'}`)
+          console.log(jobListings)
         }}
       >
         <Form>
