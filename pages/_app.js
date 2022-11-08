@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import { JobListingsProvider } from "../context/JobListings";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <JobListingsProvider>
+      <Component {...pageProps} />
+    </JobListingsProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
