@@ -14,7 +14,7 @@ export default function Header() {
       }}
       className="w-screen h-[10.125rem]"
     >
-    <div className="flex mx-auto w-[61.688rem] pt-[2.813rem] justify-between">
+    <div className="flex mx-auto w-[69.375rem] pt-[2.813rem] justify-between">
       <Image src={Logo} alt="devjobs logo" />
       <ThemeToggler />
     </div>

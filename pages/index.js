@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <Layout>
       <SearchBar />
-      <div className="w-full">
+      <div className="w-[69.375rem] mx-auto">
         {jobListings ? (
           <JobListings jobListings={jobListings} />
         ) : (
