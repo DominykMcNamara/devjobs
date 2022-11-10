@@ -6,7 +6,7 @@ export default function JobListing({ job }) {
   });
   return (
     <div
-      className="w-[21.875rem] h-[14.25rem] align-center my-10 mx-auto bg-secondary-white rounded-[0.375rem]  "
+      className="w-[21.875rem] h-[14.25rem] align-center my-10 bg-secondary-white rounded-[0.375rem]  "
     >
       <div
         style={{ backgroundColor: job.logoBackground }}
