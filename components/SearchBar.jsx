@@ -28,7 +28,7 @@ export default function SearchBar() {
         }}
       >
         <Form>
-          <div className="divide-x relative bottom-[2rem] flex flex-row bg-secondary-white rounded ">
+          <div className="divide-x relative bottom-[2rem] flex flex-row bg-secondary-white rounded-[0.375rem] ">
             <label className="p-3">
               <Image
                 src={SearchIcon}
@@ -64,7 +64,7 @@ export default function SearchBar() {
               <Field type="checkbox" name="fullTime" className="" />
               Full Time Only
               <button
-                className="ml-4 h-[3rem] w-[7.688rem] bg-[#5964E0] rounded text-secondary-white font-bold text-p text-center"
+                className="ml-4 h-[3rem] w-[7.688rem] bg-[#5964E0] rounded-[0.313rem] text-secondary-white font-bold text-p text-center"
                 type="submit"
               >
                 Search
