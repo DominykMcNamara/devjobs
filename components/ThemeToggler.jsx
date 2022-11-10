@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
-import sunIcon from "../assets/desktop/icon-sun.svg";
-import moonIcon from "../assets/desktop/icon-moon.svg";
+import sunIcon from "/public/assets/desktop/icon-sun.svg";
+import moonIcon from "/public/assets/desktop/icon-moon.svg";
 
 export function ThemeToggler() {
   const [darkMode, setDarkMode] = useState(false);

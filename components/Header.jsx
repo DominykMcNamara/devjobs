@@ -1,6 +1,6 @@
-import bg from "../assets/desktop/bg-pattern-header.svg";
+import bg from "/public/assets/desktop/bg-pattern-header.svg";
 import Image from "next/image";
-import Logo from "../assets/desktop/logo.svg"
+import Logo from "/public/assets/desktop/logo.svg"
 import { ThemeToggler } from "./ThemeToggler";
 
 export default function Header() {

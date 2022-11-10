@@ -4,8 +4,8 @@ import Image from "next/image";
 import axios from "axios";
 import * as Yup from "yup";
 import { TextInput } from "./TextInput";
-import SearchIcon from "../assets/desktop/icon-search.svg";
-import LocationIcon from "../assets/desktop/icon-location.svg";
+import SearchIcon from "/public/assets/desktop/icon-search.svg";
+import LocationIcon from "/public/assets/desktop/icon-location.svg";
 export default function SearchBar() {
   const { setJobListings } = useJobListings();
   return (
