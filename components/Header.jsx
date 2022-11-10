@@ -1,6 +1,7 @@
 import bg from "/public/assets/desktop/bg-pattern-header.svg";
+import Link from "next/link";
 import Image from "next/image";
-import Logo from "/public/assets/desktop/logo.svg"
+import Logo from "/public/assets/desktop/logo.svg";
 import { ThemeToggler } from "./ThemeToggler";
 
 export default function Header() {
@@ -14,10 +15,13 @@ export default function Header() {
       }}
       className="w-screen h-[10.125rem]"
     >
-    <div className="flex mx-auto w-[69.375rem] pt-[2.813rem] justify-between">
-      <Image src={Logo} alt="devjobs logo" />
-      <ThemeToggler />
-    </div>
+      <div className="flex mx-auto w-[69.375rem] pt-[2.813rem] justify-between">
+        <Link href="/">
+          {" "}
+          <Image src={Logo} alt="devjobs logo" />{" "}
+        </Link>
+        <ThemeToggler />
+      </div>
     </div>
   );
 }
