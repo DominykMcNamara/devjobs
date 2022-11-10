@@ -20,7 +20,6 @@ export default function Layout({ children }) {
       </Head>
       <main className="bg-secondary-lightGrey">
         <Header />
-        <SearchBar />
         { children }
       </main>
     </div>
