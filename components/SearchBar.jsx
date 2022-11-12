@@ -2,10 +2,10 @@ import { Formik, Form, Field } from "formik";
 import { useJobListings } from "../context/JobListings";
 import Image from "next/image";
 import axios from "axios";
-import * as Yup from "yup";
 import { TextInput } from "./TextInput";
 import SearchIcon from "/public/assets/desktop/icon-search.svg";
 import LocationIcon from "/public/assets/desktop/icon-location.svg";
+import { calculateSizeAdjustValues } from "next/dist/server/font-utils";
 export default function SearchBar() {
   const { setJobListings } = useJobListings();
   return (
@@ -14,17 +14,38 @@ export default function SearchBar() {
         initialValues={{
           companyOrSearchTerm: "",
           location: "",
-          fullTime: true,
+          fullTime: false,
         }}
         onSubmit={async (values) => {
-          const jobListings = await axios.get(
-            `http://localhost:3000/api/jobs/filter/${
-              values.companyOrSearchTerm ? values.companyOrSearchTerm : "''"
-            }/${values.location ? values.location : "''"}/${
-              values.fullTime ? "Full Time" : "Part Time"
-            }`
-          );
-          setJobListings(jobListings.data);
+          if (
+            !values.companyOrSearchTerm &&
+            !values.location &&
+            !values.fullTime
+          ) {
+            const allListings = await axios.get(
+              "http://localhost:3000/api/jobs"
+            );
+            setJobListings(allListings.data);
+          }  else if (
+            !values.companyOrSearchTerm &&
+            !values.location &&
+            values.fullTime
+          ) {
+            const jobListings = await axios.get(
+              "http://localhost:3000/api/jobs/filter/fulltime"
+            );
+            console.log(jobListings);
+            setJobListings(jobListings.data);
+          } else {
+            const jobListings = await axios.get(
+              `http://localhost:3000/api/jobs/filter/${
+                values.companyOrSearchTerm ? values.companyOrSearchTerm : "''"
+              }/${values.location ? values.location : "''"}/${
+                values.fullTime ? "Full Time" : ""
+              }`
+            );
+            setJobListings(jobListings.data);
+          }
         }}
       >
         <Form>

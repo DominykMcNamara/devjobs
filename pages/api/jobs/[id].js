@@ -4,7 +4,7 @@ const handler = async ({ query: { id } }, res) => {
   try {
     const jobListing = jobsData.filter((job) => (job.id === parseInt(id)));
     if (jobListing) {
-     await res.status(200).json(jobListing[0]);
+      res.status(200).json(jobListing[0]);
     } else {
       res
         .status(404)

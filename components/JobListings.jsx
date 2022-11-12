@@ -5,17 +5,19 @@ import Layout from "./Layout";
 
 export default function JobListings() {
   const { jobListings } = useJobListings();
-  
-  const basePath = '../assets/logos'
+  useEffect(() => console.log(jobListings));
+  const basePath = "../assets/logos";
   const listJobs = (
     <ul className="flex flex-wrap justify-between w-[69.375rem]  flex-wrap mx-auto">
-      {jobListings.map((job) => (
-        <li key={job.id}>
-          <JobListing job={job}  />
-        </li>
-      ))}
+      {jobListings
+        ? jobListings.map((job) => (
+            <li key={job.id}>
+              <JobListing job={job} />
+            </li>
+          ))
+        : "Please wait while we retrieve job listings"}
     </ul>
   );
 
-  return <div>{listJobs}</div> 
+  return <div>{listJobs}</div>;
 }
