@@ -1,11 +1,14 @@
 import { JobListingsProvider } from "../context/JobListings";
+import { ThemeProvider } from "next-themes";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <JobListingsProvider>
-      <Component {...pageProps} />
-    </JobListingsProvider>
+    <ThemeProvider attribute="class">
+      <JobListingsProvider>
+        <Component {...pageProps} />
+      </JobListingsProvider>
+    </ThemeProvider>
   );
 }
 

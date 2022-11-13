@@ -26,7 +26,7 @@ export default function SearchBar() {
               "http://localhost:3000/api/jobs"
             );
             setJobListings(allListings.data);
-          }  else if (
+          } else if (
             !values.companyOrSearchTerm &&
             !values.location &&
             values.fullTime
@@ -49,7 +49,7 @@ export default function SearchBar() {
         }}
       >
         <Form>
-          <div className="divide-x relative bottom-[2rem] flex flex-row w-[69.375rem] bg-secondary-white rounded-[0.375rem] ">
+          <div className="divide-x relative bottom-[2rem] flex flex-row w-[69.375rem] bg-secondary-white dark:bg-[#19202D]  rounded-[0.375rem] ">
             <label className="p-3">
               <Image
                 src={SearchIcon}

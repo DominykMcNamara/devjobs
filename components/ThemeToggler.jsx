@@ -1,17 +1,25 @@
 import { useState } from "react";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import sunIcon from "/public/assets/desktop/icon-sun.svg";
 import moonIcon from "/public/assets/desktop/icon-moon.svg";
 
 export function ThemeToggler() {
+  const { theme, setTheme } = useTheme();
   const [darkMode, setDarkMode] = useState(false);
   const toggleTheme = () => {
-    setDarkMode(!darkMode);
+    if (darkMode) {
+      setDarkMode(!darkMode);
+      setTheme("dark");
+    } else {
+      setDarkMode(!darkMode);
+      setTheme("light");
+    }
   };
   return (
     <div className="flex flex-row w-[7rem] justify-between align-center p-2">
       <Image
-        src={sunIcon}
+        src={moonIcon}
         alt="Icon in the shape of a sun"
         height={25}
         width={25}
@@ -26,7 +34,7 @@ export function ThemeToggler() {
         ></button>
       </div>
       <Image
-        src={moonIcon}
+        src={sunIcon}
         alt="Icon in the shape of a moon"
         height={25}
         width={25}

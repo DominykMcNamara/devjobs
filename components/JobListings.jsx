@@ -8,7 +8,7 @@ export default function JobListings() {
   useEffect(() => console.log(jobListings));
   const basePath = "../assets/logos";
   const listJobs = (
-    <ul className="flex flex-wrap justify-between w-[69.375rem]  flex-wrap mx-auto">
+    <ul className="flex flex-wrap justify-between w-[69.375rem] flex-wrap mx-auto">
       {jobListings
         ? jobListings.map((job) => (
             <li key={job.id}>
