@@ -5,21 +5,19 @@ import sunIcon from "/public/assets/desktop/icon-sun.svg";
 import moonIcon from "/public/assets/desktop/icon-moon.svg";
 
 export function ThemeToggler() {
-  const { theme, setTheme } = useTheme();
-  const [darkMode, setDarkMode] = useState(false);
+  const { theme, setTheme } = useTheme('light');
+ 
   const toggleTheme = () => {
-    if (darkMode) {
-      setDarkMode(!darkMode);
+    if (theme !=='dark') {
       setTheme("dark");
     } else {
-      setDarkMode(!darkMode);
       setTheme("light");
     }
   };
   return (
-    <div className="flex flex-row w-[7rem] justify-between align-center p-2">
+    <div className="flex flex-row desktop:w-[7rem] justify-between align-center p-2">
       <Image
-        src={moonIcon}
+        src={sunIcon}
         alt="Icon in the shape of a sun"
         height={25}
         width={25}
@@ -29,12 +27,12 @@ export function ThemeToggler() {
         <button
           onClick={toggleTheme}
           className={`cursor-pointer rounded-full bg-[#5964E0] ${
-            darkMode ? "translate-x-5" : "-translate-x-0"
+            theme === 'dark' ? "translate-x-5" : "-translate-x-0"
           }  h-[0.875rem] transition-all duration-75 w-[0.875rem]`}
         ></button>
       </div>
       <Image
-        src={sunIcon}
+        src={moonIcon}
         alt="Icon in the shape of a moon"
         height={25}
         width={25}

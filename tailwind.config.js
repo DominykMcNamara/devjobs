@@ -7,12 +7,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    screens: {
+  /*  screens: {
       mobile: "0px",
       tablet: "768px",
       laptop: "1024px",
       desktop: "1200px",
-    },
+    }, */
     colors: {
       primary: {
         violet: "#9e7f66",
@@ -39,7 +39,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        headerImage: "url('/assets/desktop/bg-pattern-header.svg')",
+        headerImageDesktop: "url('/assets/desktop/bg-pattern-header.svg')",
+        headerImageMobile: "url('/assets/mobile/bg-pattern-header.svg')",
         footerImage: "url('/assets/desktop/bg-pattern-detail-footer.svg')"
       }
     },

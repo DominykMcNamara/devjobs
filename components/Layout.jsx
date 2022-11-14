@@ -5,9 +5,10 @@ export const siteTitle = "Devjobs";
 
 export default function Layout({ children }) {
   return (
-    <div >
+    <div>
       <Head>
         <link rel="icon" href="/assets/favicon-32x32.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <meta name="Devjobs" content="A job listing application" />
         <meta
           property="og:image"
@@ -18,11 +19,11 @@ export default function Layout({ children }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <main className="bg-secondary-lightGrey dark:bg-[black] ">
+      <main className="bg-secondary-lightGrey  dark:bg-[#121721] ">
         <Header />
-        { children }
+        {children}
+       
       </main>
     </div>
-
   );
 }
