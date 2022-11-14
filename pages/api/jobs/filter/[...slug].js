@@ -11,7 +11,7 @@ const handler = async (req, res) => {
         (job.position.toLowerCase() === slug[0].toLowerCase() ||
           job.company.toLowerCase() === slug[0].toLowerCase() ||
           job.location.toLowerCase() === slug[1].toLowerCase()) &&
-       ( job.contract.toLowerCase() === "full time" || job.contract.toLowerCase() === "part time")
+       ( job.contract === "Full Time" || job.contract === "Part Time")
     );
     if (jobListings) {
       res.status(200).json(jobListings);

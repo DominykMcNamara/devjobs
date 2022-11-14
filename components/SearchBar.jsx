@@ -1,25 +1,65 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useJobListings } from "../context/JobListings";
 import Image from "next/image";
 import SearchIcon from "/public/assets/desktop/icon-search.svg";
 import LocationIcon from "/public/assets/desktop/icon-location.svg";
 import FilterIcon from "/public/assets/mobile/icon-filter.svg";
 import Modal from "./Modal";
-export default function SearchBar() {
+import axios from "axios";
+export default function SearchBar({ mobileLocation, mobileFullTime }) {
   const { setJobListings } = useJobListings();
-  const [searchTerm, setsearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
   const [fullTime, setFullTime] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
+  const handleSubmit = async () => {
+    if (
+      !searchTerm &&
+      (!location || !mobileLocation) &&
+      (!fullTime || !mobileFullTime)
+    ) {
+      const jobListings = await axios.get("http://localhost:3000/api/jobs");
+      setJobListings(jobListings.data);
+    } else if (
+      !searchTerm &&
+      (!location || !mobileLocation) &&
+      (fullTime || mobileFullTime)
+    ) {
+      const jobListings = await axios.get(
+        "http://localhost:3000/api/jobs/filter/fulltime"
+      );
+      setJobListings(jobListings.data);
+    } else if (searchTerm && (!location || !mobileLocation) && (!fullTime || !mobileFullTime)) {
+      const jobListings = await axios.get(`http://localhost:3000/api/jobs/filter/companyortitle/${searchTerm}`)
+      setJobListings(jobListings.data)
+    } 
+    else {
+      const jobListings = await axios.get(
+        `http://localhost/api/jobs/filter/${searchTerm ? searchTerm : "''"}/${
+          location || mobileLocation ? location : "''"
+        }/${fullTime || mobileFullTime ? "Full Time" : ""}`
+      );
+      setJobListings(jobListings.data);
+    }
+  };
+  useEffect(() => {
+    console.log(searchTerm);
+  });
+
   return (
     <div>
       {showModal ? (
         <div id="modal-root" className="w-80 h-80 mx-auto">
           {" "}
-          <Modal modal={showModal} searchTerm={searchTerm} showModal={setShowModal} />
+          <Modal
+            modal={showModal}
+            searchTerm={searchTerm}
+            showModal={setShowModal}
+          />
         </div>
       ) : (
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="w-80 mx-auto justify-around text-h3 dark:divide-[#6E8098] relative  bottom-9 flex flex-row py-4 bg-secondary-white dark:bg-[#19202D] rounded-[0.375rem] ">
             <label for="companyOrSearchTerm" className="">
               <button
@@ -47,7 +87,7 @@ export default function SearchBar() {
                 placeholder="Enter job desc..."
                 type="text"
                 value={searchTerm}
-                onChange={(e) => setsearchTerm(e.target.value)}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
               <button
                 type="submit"

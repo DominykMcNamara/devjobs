@@ -4,7 +4,7 @@ const handler = async ({ query: companyOrTitle }, res) => {
   try {
     const jobListings = jobsData.filter(
       (job) =>
-        job.company.toLowerCase() === companyOrTitle|| job.position.toLowerCase() === companyOrTitle
+        job.company.toLowerCase() === companyOrTitle || job.position.toLowerCase() === companyOrTitle
       
     );
     if (jobListings) {
