@@ -1,10 +1,13 @@
 import Link from "next/link";
 export default function JobListing({ job }) {
   return (
-    <div className=" flex  flex-col  w-80 py-4 my-20 ml-10 sm:ml-40 md:ml-7 bg-secondary-white dark:bg-[#19202D] rounded">
+    <div className="w-[20.538rem] h-[14.25rem] flex  flex-col pb-[2rem] pl-[0.5rem] my-20 ml-10 rounded
+                    sm:ml-40
+                    md:ml-7
+                    bg-secondary-white dark:bg-[#19202D] ">
       <div
         style={{ backgroundColor: job.logoBackground }}
-        className="h-16 w-16 rounded-xl py-6 relative bottom-7 left-7"
+        className=" w-[3.125rem] h-[3.125rem]  rounded-[0.938rem] py-[1rem] relative bottom-[1rem] left-[2rem]"
       >
         <img
           src={job.logo}
@@ -12,7 +15,7 @@ export default function JobListing({ job }) {
           className="mx-auto"
         />
       </div>
-      <div className="pl-[2rem] ">
+      <div className="pl-[2rem] mt-[0.5rem] ">
         <p className="text-p text-secondary-darkGrey ">
           {job.postedAt} &bull; {job.contract}
         </p>
