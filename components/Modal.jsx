@@ -38,30 +38,33 @@ export default function Modal({ modal, searchTerm, showModal }) {
   const modalContent = modal ? (
     <>
       <SearchBar mobileLocation={location} mobileFullTime={fullTime} />
-      <div className="absolute  w-screen h-screen flex justify-center align-center bg-[black]/50 z-50 top-0 left-0">
-        <div className="h-80 w-80 p-6 rounded-lg bg-secondary-white dark:bg-[#19202D] my-auto flex flex-col">
+      <div className="absolute  w-screen h-screen flex justify-center align-center  top-0 left-0
+                      bg-[black]/50 z-50">
+        <div className=" w-[20.438rem] h-[14rem] rounded-[0.375rem] py-[1rem]   my-auto flex flex-col
+                        bg-secondary-white dark:bg-[#19202D]">
           <span>
             <button
-              className="text-[#19202D] cursor-pointer font-bold relative flex w-full justify-end text-h2 dark:text-secondary-white"
+              className=" font-bold justify-end relative pr-[1rem] flex w-full  text-h2 
+                          text-[#19202D] cursor-pointer dark:text-secondary-white"
               onClick={() => showModal(false)}
             >
               x
             </button>
           </span>
           <label
-            for
-            location
-            className="p-3 border-b-2 dark:border-secondary-white w-full"
+            className=" border-b-2 px-[1rem] border-[#6E8098] w-full
+                       dark:border-secondary-white"
           >
             <Image
               src={LocationIcon}
               height={24}
               width={24}
-              alt="Icon shaped like a magnifying glass"
-              className="relative top-8 "
+              alt="Icon shaped like a location pin"
+              className="relative top-[1.544rem]"
             />
             <input
-              className=" focus:outline-0 desktop:w-[18rem] p-3 text-h3 ml-10 dark:bg-[#19202D] "
+              className=" desktop:w-[18rem]  text-h3 ml-10 
+                          dark:bg-[#19202D] focus:outline-0  "
               name="location"
               placeholder="Filter by location..."
               type="text"
@@ -72,7 +75,8 @@ export default function Modal({ modal, searchTerm, showModal }) {
 
           <label
             for="fullTime"
-            className=" font-bold text-h3 text-[#19202D] my-auto  flex flex-row p-3 dark:text-secondary-white ml-2 "
+            className=" font-bold text-h3  my-[1rem]  flex flex-row   px-[1.5rem]
+                        text-[#19202D] dark:text-secondary-white"
           >
             <input
               type="checkbox"
@@ -83,7 +87,8 @@ export default function Modal({ modal, searchTerm, showModal }) {
             Full Time
           </label>
           <button
-            className="desktop:ml-10 tablet:mt-4 tablet:p-3 h-[3rem] desktop:w-[7.688rem] tablet-[5rem] bg-[#5964E0] hover:bg-[#939BF4] rounded-[0.313rem] mobile:my-3 text-secondary-white font-bold text-p text-center "
+            className=" h-[3rem]  w-[17.438rem] mx-auto my-auto py-[1rem] rounded-[0.313rem]  font-bold text-p text-center 
+                        text-secondary-white bg-[#5964E0] hover:bg-[#939BF4]"
             type="submit"
             onClick={handleSubmit}
           >

@@ -30,11 +30,16 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
         "http://localhost:3000/api/jobs/filter/fulltime"
       );
       setJobListings(jobListings.data);
-    } else if (searchTerm && (!location || !mobileLocation) && (!fullTime || !mobileFullTime)) {
-      const jobListings = await axios.get(`http://localhost:3000/api/jobs/filter/companyortitle/${searchTerm}`)
-      setJobListings(jobListings.data)
-    } 
-    else {
+    } else if (
+      searchTerm &&
+      (!location || !mobileLocation) &&
+      (!fullTime || !mobileFullTime)
+    ) {
+      const jobListings = await axios.get(
+        `http://localhost:3000/api/jobs/filter/companyortitle/${searchTerm}`
+      );
+      setJobListings(jobListings.data);
+    } else {
       const jobListings = await axios.get(
         `http://localhost/api/jobs/filter/${searchTerm ? searchTerm : "''"}/${
           location || mobileLocation ? location : "''"
@@ -60,10 +65,18 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <div className="w-80 mx-auto justify-around text-h3 dark:divide-[#6E8098] relative  bottom-9 flex flex-row py-4 bg-secondary-white dark:bg-[#19202D] rounded-[0.375rem] ">
-            <label for="companyOrSearchTerm" className="">
+          <div
+            className=" w-[20.438rem] h-[5rem] py-[1.3rem]  mx-auto  relative  bottom-9 flex flex-row align-center rounded-[0.375rem]  mx-auto text-h3 
+                           md:w-[689px] md:divide-x md:justify-center   
+                           dark:divide-[#6E8098] bg-secondary-white dark:bg-[#19202D] "
+          >
+            <label
+              className="px-[1rem] 
+                              md:px-0"
+            >
               <button
-                className="relative  left-3/4 top-1"
+                className="relative left-3/4 top-1 
+                           md:hidden"
                 onClick={() => setShowModal(true)}
               >
                 <Image
@@ -79,10 +92,12 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
                 height={24}
                 width={24}
                 alt="Icon shaped like a magnifying glass"
-                className="relative top-8 hidden"
+                className="relative top-8 hidden 
+                           md:block md:left-4  md:bottom-1"
               />
               <input
-                className=" focus:outline-0 desktop:w-[23rem] dark:bg-[#19202D] "
+                className="md:relative md:left-1 md:my-auto
+                           focus:outline-0  dark:bg-[#19202D]"
                 name="companyOrSearchTerm"
                 placeholder="Enter job desc..."
                 type="text"
@@ -91,22 +106,27 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
               />
               <button
                 type="submit"
-                className="bg-[#5964E0] p-2 text-secondary-white dark:text-secondary-white rounded-[0.375rem]"
+                className=" relative -top-9 h-[3rem] w-[3rem] left-60 bottom-7 rounded-[0.375rem] 
+                           md:hidden
+                           bg-[#5964E0] text-secondary-white dark:text-secondary-white"
               >
                 &#x1F50E;&#xFE0E;
               </button>
             </label>
 
-            <label for location className="p-3">
+            <label className="px-4">
               <Image
                 src={LocationIcon}
                 height={24}
                 width={24}
                 alt="Icon shaped like a magnifying glass"
-                className="relative top-8 hidden"
+                className="relative top-8 hidden 
+                           md:block md:top-5 md:left-4"
               />
               <input
-                className=" focus:outline-0 desktop:w-[18rem] p-3 ml-10 hidden"
+                className="relative  hidden
+                           md:block    md:my-auto  
+                          focus:outline-0 dark:bg-[#19202D]"
                 name="location"
                 placeholder="Filter by location..."
                 type="text"
@@ -117,7 +137,9 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
 
             <label
               for="fullTime"
-              className="mx-auto font-bold text-p text-[#19202D] my-auto  flex flex-row dark:text-secondary-white hidden"
+              className="mx-auto font-bold text-p  my-auto  flex flex-row  hidden
+                         md:flex  md:flex-row  md:block
+                        text-[#19202D] dark:text-secondary-white"
             >
               <input
                 type="checkbox"
@@ -126,13 +148,15 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
                 onChange={() => setFullTime(!fullTime)}
               />
               Full Time
+              <button
+                className=" h-[3rem]  rounded-[0.313rem] font-bold text-p text-center hidden 
+                            md:block 
+                            text-secondary-white hover:bg-[#939BF4]"
+                type="submit"
+              >
+                Search
+              </button>
             </label>
-            <button
-              className="desktop:ml-10 tablet:mt-4 tablet:p-3 h-[3rem] desktop:w-[7.688rem] tablet-[5rem] bg-[#5964E0] hover:bg-[#939BF4] rounded-[0.313rem] mobile:my-3 text-secondary-white font-bold text-p text-center hidden"
-              type="submit"
-            >
-              Search
-            </button>
           </div>
         </form>
       )}
