@@ -1,9 +1,9 @@
 import Link from "next/link";
 export default function JobListing({ job }) {
   return (
-    <div className="w-[20.538rem] h-[14.25rem] flex  flex-col pb-[2rem] pl-[0.5rem] my-20 ml-10 rounded
+    <div className="w-[20.538rem] h-[14.25rem] flex flex-col pb-[2rem] pl-[0.5rem] my-20 ml-10 rounded
                     sm:ml-40
-                    md:ml-7
+                    md:ml-7 md:w-[21.188rem] md:h-[14.25rem]
                     bg-secondary-white dark:bg-[#19202D] ">
       <div
         style={{ backgroundColor: job.logoBackground }}

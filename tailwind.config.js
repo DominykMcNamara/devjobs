@@ -41,6 +41,7 @@ module.exports = {
       backgroundImage: {
         headerImageDesktop: "url('/assets/desktop/bg-pattern-header.svg')",
         headerImageMobile: "url('/assets/mobile/bg-pattern-header.svg')",
+        headerImageTablet: "url('/assets/tablet/bg-pattern-header.svg')",
         footerImage: "url('/assets/desktop/bg-pattern-detail-footer.svg')"
       }
     },

@@ -5,8 +5,14 @@ import { ThemeToggler } from "./ThemeToggler";
 
 export default function Header() {
   return (
-    <div className="w-full py-[2rem] px-[1.5rem] h-[10.125rem] bg-headerImageMobile">
-      <div className="flex mx-auto desktop:w-[69.375rem] mobile:p-10  desktop:pt-[2.813rem] tablet:p-[3rem] justify-between">
+    <div className="w-full py-[2rem] px-[1.5rem] h-[10.125rem] bg-headerImageMobile
+                    md:bg-headerImageTablet
+                    lg:bg-headerImageDesktop">
+      <div
+        className="flex mx-auto  justify-between
+                   lg: px-[8rem]
+                      "
+      >
         <Link href="/">
           {" "}
           <Image src={Logo} alt="devjobs logo" />{" "}
