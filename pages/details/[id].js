@@ -3,6 +3,7 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 
 export default function JobDetails({ job }) {
+  if (!job) return null
   return (
     <Layout>
       {/* JOB HEADER */}
