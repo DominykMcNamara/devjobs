@@ -159,7 +159,7 @@ export default function JobDetails({ job }) {
   }
 }
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const job = await (
     await fetch(`http://localhost:3000/api/jobs/${context.params.id}`)
   ).json();
