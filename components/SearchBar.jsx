@@ -6,46 +6,26 @@ import LocationIcon from "/public/assets/desktop/icon-location.svg";
 import FilterIcon from "/public/assets/mobile/icon-filter.svg";
 import Modal from "./Modal";
 import axios from "axios";
-export default function SearchBar({ mobileLocation, mobileFullTime }) {
-  const { setJobListings } = useJobListings();
+export default function SearchBar({  }) {
+  const { jobListings, setJobListings } = useJobListings();
   const [searchTerm, setSearchTerm] = useState("");
   const [location, setLocation] = useState("");
   const [fullTime, setFullTime] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const handleSubmit = async () => {
-    if (
-      !searchTerm &&
-      (!location || !mobileLocation) &&
-      (!fullTime || !mobileFullTime)
-    ) {
+  const handleSubmit = async (e) => {
+    e.preventDefault(e)
+    if (!searchTerm && !location && !fullTime) {
       const jobListings = await axios.get("http://localhost:3000/api/jobs");
       setJobListings(jobListings.data);
-    } else if (
-      !searchTerm &&
-      (!location || !mobileLocation) &&
-      (fullTime || mobileFullTime)
-    ) {
+    } else if (!searchTerm && !location && fullTime) {
       const jobListings = await axios.get(
         "http://localhost:3000/api/jobs/filter/fulltime"
       );
       setJobListings(jobListings.data);
-    } else if (
-      searchTerm &&
-      (!location || !mobileLocation) &&
-      (!fullTime || !mobileFullTime)
-    ) {
-      const jobListings = await axios.get(
-        `http://localhost:3000/api/jobs/filter/companyortitle/${searchTerm}`
-      );
-      setJobListings(jobListings.data);
     } else {
-      const jobListings = await axios.get(
-        `http://localhost/api/jobs/filter/${searchTerm ? searchTerm : "''"}/${
-          location || mobileLocation ? location : "''"
-        }/${fullTime || mobileFullTime ? "Full Time" : ""}`
-      );
-      setJobListings(jobListings.data);
+      const jobListings = await axios.get(`http://localhost:3000/api/jobs/filter/${searchTerm ? searchTerm : "''"}/${location ? location : "''"}/${fullTime ? "Full Time" : "Part Time"}`)
+      setJobListings(jobListings.data)
     }
   };
 

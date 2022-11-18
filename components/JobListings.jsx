@@ -7,7 +7,7 @@ export default function JobListings() {
   const { jobListings } = useJobListings();
   const listJobs = (
     <ul
-      className="h-fit w-full relative flex flex-col
+      className="min-h-screen w-full relative flex flex-col
                    md:flex-row md:flex-wrap md:ml-[0.5rem]
                   lg:w-[60rem]
                   xl:w-[69.375rem] xl:right-[2rem]
@@ -15,7 +15,7 @@ export default function JobListings() {
     >
       {jobListings
         ? jobListings.map((job) => (
-            <li key={job}>
+            <li key={job.id}>
               <JobListing job={job} />
             </li>
           ))

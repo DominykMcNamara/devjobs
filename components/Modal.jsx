@@ -37,7 +37,7 @@ export default function Modal({ modal, searchTerm, showModal }) {
 
   const modalContent = modal ? (
     <>
-      <SearchBar mobileLocation={location} mobileFullTime={fullTime} />
+      <SearchBar  />
       <div className="absolute  w-screen h-screen flex justify-center align-center  top-0 left-0
                       bg-[black]/50 z-50">
         <div className=" w-[20.438rem] h-[14rem] rounded-[0.375rem] py-[1rem]   my-auto flex flex-col
