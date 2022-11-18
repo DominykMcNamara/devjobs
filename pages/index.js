@@ -10,7 +10,7 @@ export default function Home() {
 
   const fetchJobListings = async () => {
     try {
-      let jobListings = await axios.get("http://localhost:3000/api/jobs");
+      let jobListings = await axios.get("https://devjobs-o85v.vercel.app/api/jobs");
       if (jobListings) {
         setJobListings(jobListings.data);
         console.log(jobListings.data);

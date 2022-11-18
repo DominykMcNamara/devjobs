@@ -161,7 +161,7 @@ export default function JobDetails({ job }) {
 
 export const getServerSideProps = async (context) => {
   const job = await (
-    await fetch(`http://localhost:3000/api/jobs/${context.params.id}`)
+    await fetch(`https://devjobs-o85v.vercel.app/api/jobs/${context.params.id}`)
   ).json();
   return {
     props: {
