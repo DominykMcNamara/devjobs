@@ -6,55 +6,76 @@ export default function JobDetails({ job }) {
   return (
     <Layout>
       {/* JOB HEADER */}
-      <div className="flex flex-row justify-between align-center rounded-[0.375rem] desktop:w-[45.625rem] tablet:w-[43.063rem] desktop:h-[8.75rem] bg-secondary-white dark:bg-[#19202D] mx-auto relative bottom-8">
+      <div
+        className="flex flex-col w-[20.438rem] h-[12.813rem] align-center rounded-[0.375rem] px-[7.75rem]  text-center  mx-auto relative bottom-8
+                    md:flex-row md:w-[43.063rem] md:h-[8.75rem] md:justify-between md:px-0
+                       bg-secondary-white dark:bg-[#19202D]"
+      >
         <div
           style={{ backgroundColor: job.logoBackground }}
-          className=" desktop:w-[8.125rem] desktop:h-[8.75rem] tablet:w-[8.75rem] tablet:h-[8.75rem]  rounded-l-[0.375rem]"
+          className=" w-[3.125rem] h-[3.125rem] rounded-[0.375rem] relative bottom-[1rem] left-[1rem]
+                      md:w-[8.75rem] md:h-[8.75rem] md:-left-[0rem] md:top-[0rem]"
         >
           <Image
             src={job.logo}
             alt={`${job.company} logo`}
             height={23}
             width={81}
-            className="mx-auto my-[3.688rem]"
+            className="mx-auto py-[1rem]
+                      md:py-[4rem]"
           />
         </div>
-        <div className="mt-[2.875rem] desktop:mr-[18.438rem] tablet:mr-[13rem]">
-          <h3 className="text-h3 font-bold dark:text-secondary-white text-[#19202D]">
+        <div className="relative
+                        md:my-[2.5rem] md:right-[8rem]">
+          <h3
+            className="text-h3 font-bold 
+                        dark:text-secondary-white text-[#19202D]"
+          >
             {job.company}
           </h3>
-          <p className="text-p text-secondary-darkGrey">{job.company}.com</p>
+          <p
+            className="text-p  mt-[0.5rem] 
+                        text-secondary-darkGrey"
+          >
+            {job.company}.com
+          </p>
         </div>
-        <div className="mt-[2.875rem] mr-[2.688rem] ">
+        <div className="">
           <Link href={`${job.website}`}>
             {" "}
-            <button className="text-center  text-[#5964E0] font-bold dark:text-secondary-white  rounded-[0.313rem] desktop:h-[3.625rem] desktop:w-[9.188rem]  tablet:h-[3.625rem] tablet:w-[9.188rem] bg-[#5964E0]/10">
+            <button className="text-center w-[9.188rem] h-[3rem] mt-[2rem] relative right-[3rem]   rounded-[0.313rem]  
+                              text-[#5964E0] font-bold dark:text-secondary-white bg-[#5964E0]/10">
               Company Site
             </button>
           </Link>
         </div>
       </div>
       {/* JOB DESCRIPTION */}
-      <div className="desktop:w-[45.625rem] tablet:w-[43.063rem] desktop:h-[100vh] bg-secondary-white dark:bg-[#19202D] rounded-[0.375rem] mx-auto">
-        <div className="px-12 pt-1">
+      <div className=" w-[20.438rem]  rounded-[0.375rem] mx-auto
+                      md:w-[43.063rem]
+                      bg-secondary-white dark:bg-[#19202D]">
+        <div className="py-[2.5rem] px-[1.5rem]">
           <div className="desktop:w-[39.38rem]">
             <p className="text-p text-secondary-darkGrey ">
               {job.postedAt} &bull; {job.contract}
             </p>
-            <div className="flex flex-row align-center justify-between">
-              <h3 className="text-h3 font-bold mt-1">{job.position}</h3>
+            <div className="flex flex-col">
+              <h3 className="text-h3 font-bold my-[0.75rem]">{job.position}</h3>
+              <h4 className="text-h4 text-[#5964E0] font-bold">{job.location}</h4>
               <Link href={`${job.apply}`}>
                 {" "}
-                <button className="desktop:h-[3rem] tablet:h-[3rem] text-secondary-white desktop:w-[8.813rem]   tablet:w-[8.813rem] text-center rounded-[0.313rem] bg-[#5964E0]">
+                <button className="w-[17.438rem] h-[2.5rem] mt-[3.375rem] relative   text-center rounded-[0.313rem] bg-[#5964E0]
+                                  md:w-[8.813rem] md:h-[3rem] md:left-[28rem] md:bottom-[7.5rem]
+                                  text-secondary-white">
                   Apply Now
                 </button>
               </Link>
             </div>
-            <h4 className="text-h4 text-[#5964E0] font-bold">{job.location}</h4>
+            
           </div>
         </div>
 
-        <div className="desktop:w-[693px] desktop:h-[234px] p-[3rem] mt-[2.75rem]">
+        <div className="mt-[2.75rem]  px-[1.5rem]">
           <p className="text-p text-secondary-darkGrey">{job.description}</p>
           {/* JOB REQUIREMENTS */}
           <div className="mt-[2.5rem]">
@@ -88,8 +109,10 @@ export default function JobDetails({ job }) {
       </div>
 
       {/* FOOTER */}
-      <footer className="w-screen bg-secondary-white dark:bg-[#19202D] flex  align-center desktop:px-[24rem] justify-around desktop:h-[6rem] mt-[5.5rem] rounded-[0.375rem] desktop:py-3 tablet:py-1">
-        <div>
+      <footer className="w-screen  flex  h-[6rem] p-[1.5rem] mx-auto align-center justify-around mt-[5.5rem] rounded-[0.375rem]
+                          bg-secondary-white dark:bg-[#19202D] ">
+        <div className="hidden
+                        md:inline-block">
           <h3 className="text-h3 font-bold text-[#19202D] dark:text-secondary-white">
             {job.position}
           </h3>
@@ -99,7 +122,10 @@ export default function JobDetails({ job }) {
         </div>
         <Link href={`${job.apply}`}>
           {" "}
-          <button className="h-[3rem] text-secondary-white w-[8.813rem] text-center rounded-[0.313rem] bg-[#5964E0]/50  bg-[#5964E0]">
+          <button className="w-[20.438rem] h-[3rem]   text-center rounded-[0.313rem] 
+                              md:w-[8.813rem] 
+                              text-secondary-white
+                              bg-[#5964E0]/50  bg-[#5964E0]">
             Apply Now
           </button>
         </Link>

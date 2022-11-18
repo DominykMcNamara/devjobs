@@ -4,6 +4,7 @@ export default function JobListing({ job }) {
     <div className="w-[20.538rem] h-[14.25rem] flex flex-col pb-[2rem] pl-[0.5rem] my-20 ml-10 rounded
                     sm:ml-40
                     md:ml-7 md:w-[21.188rem] md:h-[14.25rem]
+                    xl:mx-[0.8rem]
                     bg-secondary-white dark:bg-[#19202D] ">
       <div
         style={{ backgroundColor: job.logoBackground }}

@@ -65,15 +65,18 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
           <div
             className=" w-[20.438rem] h-[5rem] py-[1.3rem] mx-auto  relative bottom-9 flex flex-row rounded-[0.375rem]   text-p
                            md:w-[46.063rem] md:h-[5rem] md:divide-x md:px-[0rem] md:py-[0rem]
-                           
+                           lg:w-[45rem]
+                           xl:w-[67.375rem]
                            dark:divide-[#6E8098] bg-secondary-white dark:bg-[#19202D] "
           >
             <label
               className="px-[1rem] 
-                         md:px-[1rem] md:py-[1rem] md:ml-[2rem]"
+                         md:px-[1rem] md:py-[1rem] md:ml-[2rem]
+                         xl:w-[28.938rem] xl:px-[2rem] py-[1rem]
+                         "
             >
               <button
-                className="relative left-3/4 top-1 
+                className="relative left-[10rem] bottom-[1rem] 
                            md:hidden md:absolute"
                 onClick={() => setShowModal(true)}
               >
@@ -91,11 +94,18 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
                 width={20}
                 alt="Icon shaped like a magnifying glass"
                 className="relative top-8 hidden 
-                           md:block md:right-[1.5rem] md:top-[1.6rem]"
+                            lg:top-[0.5rem]
+                           md:block md:right-[1.5rem] md:top-[1.6rem]
+                          "
+                          
               />
               <input
-                className="md:relative  md:my-auto md:ml-[1rem]
-                           focus:outline-0  dark:bg-[#19202D]"
+                className=" relative bottom-[1rem] w-[7rem]
+
+                           md:relative w-full  md:my-auto md:ml-[1rem]
+                           lg:w-[12rem]
+                           focus:outline-0  dark:bg-[#19202D] "
+                           
                 name="companyOrSearchTerm"
                 placeholder="Enter job desc..."
                 type="text"
@@ -104,7 +114,7 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
               />
               <button
                 type="submit"
-                className=" relative left-[2rem] top-[0.01rem] h-[3rem] w-[3rem] bottom-7 rounded-[0.375rem] 
+                className=" relative left-[5rem] h-[3rem] w-[3rem] bottom-[1rem] rounded-[0.375rem] 
                            md:hidden
                            bg-[#5964E0] text-secondary-white dark:text-secondary-white"
               >
@@ -114,7 +124,8 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
 
             <label
               className="px-4
-                             md:px-[1rem] md:py-[1rem] "
+                             md:px-[1rem] md:py-[1rem] 
+                             xl:w-[18.75rem]"
             >
               <Image
                 src={LocationIcon}
@@ -122,11 +133,15 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
                 width={20}
                 alt="Icon shaped like a location pin"
                 className="relative top-8 hidden 
-                           md:block md:top-[1rem] md:left-[1rem]"
+                           md:block md:top-[1rem] md:left-[1rem]
+                           lg:top-[0.5rem]
+                           "
               />
               <input
-                className="relative  hidden
+                className="relative  w-full   hidden
                            md:block md:left-[0.5rem] md:bottom-[0.5rem] md:ml-[2.5rem] 
+                           lg:w-[12rem] lg:bottom-[1.5rem]
+                           xl:ml-[2.5rem]
                           focus:outline-0 dark:bg-[#19202D]"
                 name="location"
                 placeholder="Filter by location..."
@@ -139,6 +154,7 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
             <label
               className="mx-auto font-bold text-p  my-auto  flex flex-row  hidden
                          md:flex  md:flex-row  md:inline-flex md:px-[0.5rem] md:py-[1rem]
+                         xl:mr-[2rem] xl:w-[16.25rem] xl:px-[2rem] xl:py-[1rem]
                         text-[#19202D] dark:text-secondary-white "
             >
               <input
@@ -149,9 +165,10 @@ export default function SearchBar({ mobileLocation, mobileFullTime }) {
               />
               Full Time
               <button
-                className=" h-[3rem] w-[5rem]  rounded-[0.313rem] font-bold text-p text-center hidden 
+                className=" h-[3rem] w-[5rem]  relative rounded-[0.313rem] font-bold text-p text-center hidden 
                             md:inline-flex md:px-[0.5rem] md:py-[0.5rem] md:ml-[1rem]
-                            lg:ml-[2rem]
+                            lg:w-[4rem] lg:h-[3rem] lg:mx-[2rem]
+                            xl:ml-[0rem] xl:left-[2.5rem]
                             text-secondary-white hover:bg-[#939BF4] bg-[#5964E0]"
                 type="submit"
               >

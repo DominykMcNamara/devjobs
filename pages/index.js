@@ -26,7 +26,8 @@ export default function Home() {
   return (
     <Layout>
       <SearchBar />
-      <div className="flex desktop:justify-center tablet:justify-center mobile:justify-center mx-auto mobile:mr-96">
+      <div className="flex relative 
+                      xl:right-[21rem] ">
         {jobListings ? (
           <JobListings jobListings={jobListings} />
         ) : (
