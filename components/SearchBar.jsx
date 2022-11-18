@@ -16,15 +16,15 @@ export default function SearchBar({  }) {
   const handleSubmit = async (e) => {
     e.preventDefault(e)
     if (!searchTerm && !location && !fullTime) {
-      const jobListings = await axios.get("http://localhost:3000/api/jobs");
+      const jobListings = await axios.get("https://devjobs-o85v.vercel.app/api/jobs");
       setJobListings(jobListings.data);
     } else if (!searchTerm && !location && fullTime) {
       const jobListings = await axios.get(
-        "http://localhost:3000/api/jobs/filter/fulltime"
+        "https://devjobs-o85v.vercel.app/api/jobs/filter/fulltime"
       );
       setJobListings(jobListings.data);
     } else {
-      const jobListings = await axios.get(`http://localhost:3000/api/jobs/filter/${searchTerm ? searchTerm : "''"}/${location ? location : "''"}/${fullTime ? "Full Time" : "Part Time"}`)
+      const jobListings = await axios.get(`https://devjobs-o85v.vercel.app/api/jobs/filter/${searchTerm ? searchTerm : "''"}/${location ? location : "''"}/${fullTime ? "Full Time" : "Part Time"}`)
       setJobListings(jobListings.data)
     }
   };
