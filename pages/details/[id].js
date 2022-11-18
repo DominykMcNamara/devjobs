@@ -170,12 +170,3 @@ export const getServerSideProps = async (context) => {
   };
 };
 
-export const getStaticPaths = async () => {
-  const jobs = await (await fetch(`http://localhost:3000/api/jobs`)).json();
-  const ids = jobs.map((job) => job.id);
-  const paths = ids.map((id) => ({ params: { id: id.toString() } }));
-  return {
-    paths,
-    fallback: true,
-  };
-};
