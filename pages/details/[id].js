@@ -1,9 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from 'next/router'
 import Layout from "../../components/Layout";
 
 export default function JobDetails({ job }) {
- 
+  const router = useRouter()
+ if (router.isFallback) {
+  return(
+    <div>Locading.....</div>
+  )
+ } else {
     return (
       <Layout>
         {/* JOB HEADER */}
@@ -151,7 +157,7 @@ export default function JobDetails({ job }) {
       </Layout>
     );
   }
-
+}
 
 export const getStaticProps = async (context) => {
   const job = await (
@@ -170,6 +176,6 @@ export const getStaticPaths = async () => {
   const paths = ids.map((id) => ({ params: { id: id.toString() } }));
   return {
     paths,
-    fallback: 'blocking',
+    fallback: true,
   };
 };
