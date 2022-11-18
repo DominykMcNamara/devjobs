@@ -3,9 +3,7 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 
 export default function JobDetails({ job }) {
-  if (!job) {
-    return null;
-  } else {
+ 
     return (
       <Layout>
         {/* JOB HEADER */}
@@ -153,7 +151,7 @@ export default function JobDetails({ job }) {
       </Layout>
     );
   }
-}
+
 
 export const getStaticProps = async (context) => {
   const job = await (
@@ -172,6 +170,6 @@ export const getStaticPaths = async () => {
   const paths = ids.map((id) => ({ params: { id: id.toString() } }));
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
