@@ -10,7 +10,7 @@ export default function JobListings() {
       className="min-h-screen w-full relative flex flex-col
                    md:flex-row md:flex-wrap md:ml-[0.5rem]
                   lg:w-[60rem]
-                  xl:w-[69.375rem] xl:right-[1rem]
+                  xl:w-[69.375rem] xl:right-[4rem]
                   2xl:left-[58rem]"
     >
       {jobListings
